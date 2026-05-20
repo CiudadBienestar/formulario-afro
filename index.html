@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha de Caracterización Afrodescendiente</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/form.css">
+</head>
+<body>
+
+<header>
+  <img
+    src="https://ciudadbienestar.github.io/Usuarios_Ciudad_Bienestar/Logos_Acciones_Colectivas-removebg-preview%20(1)%20(1).png"
+    alt="Logo Acciones Colectivas"
+    class="header-logo"
+  >
+  <h1>Ficha de <span>Caracterización</span><br>Afrodescendiente</h1>
+  <p>Caracterización sociocultural orientada a determinar características sociodemográficas, culturales, económicas y de salud integral.</p>
+</header>
+
+<div class="progress-bar-container">
+  <span class="progress-label" id="progress-label">Sección 1/5</span>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-steps">
+    <div class="step-dot active" data-section="0" title="Datos de Identificación"></div>
+    <div class="step-dot" data-section="1" title="Eje Social – Vivienda"></div>
+    <div class="step-dot" data-section="2" title="Organizaciones Sociales"></div>
+    <div class="step-dot" data-section="3" title="Arte y Cultura"></div>
+    <div class="step-dot" data-section="4" title="Revisión y Envío"></div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 1 – DATOS DE IDENTIFICACIÓN
+  ══════════════════════════════════════ -->
+  <div class="form-section active" id="section-0">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF3D4;color:#7B3F00">👤</div>
+      <div>
+        <div class="section-title">Datos de Identificación</div>
+        <div class="section-subtitle">Información personal y sociodemográfica del integrante del hogar</div>
+      </div>
+    </div>
+
+    <!-- Ubicación -->
+    <div class="field-group">
+      <div class="field-group-title">Ubicación</div>
+      <div class="fields-grid cols-3">
+        <div class="field">
+          <label>Fecha de diligenciamiento</label>
+          <input type="date" id="f_fecha" name="fecha">
+        </div>
+        <div class="field">
+          <label>Departamento</label>
+          <input type="text" id="f_dpto" name="departamento" value="Nariño" placeholder="Nariño">
+        </div>
+        <div class="field">
+          <label>Municipio</label>
+          <input type="text" id="f_municipio" name="municipio" value="Pasto" placeholder="Pasto">
+        </div>
+        <div class="field">
+          <label>Barrio</label>
+          <input type="text" id="f_barrio" name="barrio" placeholder="Nombre del barrio">
+        </div>
+        <div class="field">
+          <label>Comuna</label>
+          <input type="text" id="f_comuna" name="comuna" placeholder="Número de comuna">
+        </div>
+        <div class="field">
+          <label>Dirección de la vivienda</label>
+          <input type="text" id="f_direccion" name="direccion" placeholder="">
+        </div>
+        <div class="field">
+          <label>Nº de integrantes en el hogar</label>
+          <input type="number" id="f_integrantes" name="num_integrantes" min="1" max="30" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Persona encuestada -->
+    <div class="field-group">
+      <div class="field-group-title">Datos Personales</div>
+      <div class="fields-grid cols-2">
+        <div class="field">
+          <label class="required">Nombre y Apellidos</label>
+          <input type="text" id="f_nombre" name="nombre" placeholder="Nombre completo">
+        </div>
+        <div class="field">
+          <label>Nº de documento</label>
+          <input type="text" id="f_num_doc" name="num_documento" placeholder="Número de documento">
+        </div>
+      </div>
+      <div style="margin-top:16px">
+        <label style="display:block;margin-bottom:8px">Tipo de documento</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="tipo_doc" value="RC"> RC</label>
+          <label class="option-chip"><input type="radio" name="tipo_doc" value="TI"> T.I.</label>
+          <label class="option-chip"><input type="radio" name="tipo_doc" value="CC"> C.C.</label>
+          <label class="option-chip"><input type="radio" name="tipo_doc" value="CE"> C.E.</label>
+          <label class="option-chip"><input type="radio" name="tipo_doc" value="SD"> S.D.</label>
+          <label class="option-chip"><input type="radio" name="tipo_doc" value="PPT"> P.P.T.</label>
+        </div>
+      </div>
+      <div style="margin-top:16px">
+        <label style="display:block;margin-bottom:8px">¿Cuenta con libreta militar? (para los hombres mayores de 18 años)</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="libreta_militar" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="libreta_militar" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nacimiento y Edad -->
+    <div class="field-group">
+      <div class="field-group-title">Nacimiento y Edad</div>
+      <div class="fields-grid cols-2">
+        <div class="field">
+          <label>Fecha de nacimiento</label>
+          <div class="date-triple">
+            <input type="number" name="nac_dia" placeholder="Día" min="1" max="31">
+            <input type="number" name="nac_mes" placeholder="Mes" min="1" max="12">
+            <input type="number" name="nac_ano" placeholder="Año" min="1900" max="2025">
+          </div>
+        </div>
+        <div class="field">
+          <label>Lugar de nacimiento</label>
+          <input type="text" name="lugar_nacimiento" placeholder="Ciudad, Municipio">
+        </div>
+        <div class="field">
+          <label>Edad (años cumplidos)</label>
+          <input type="number" name="edad" min="0" max="120" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Género e Identidad -->
+    <div class="field-group">
+      <div class="field-group-title">Género e Identidad</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Género</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="genero" value="M"> Masculino</label>
+          <label class="option-chip"><input type="radio" name="genero" value="F"> Femenino</label>
+          <label class="option-chip"><input type="radio" name="genero" value="Otros"> Otros</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Identidad de género</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="identidad_genero" value="Hombre"> Hombre</label>
+          <label class="option-chip"><input type="radio" name="identidad_genero" value="Mujer"> Mujer</label>
+          <label class="option-chip"><input type="radio" name="identidad_genero" value="No Binaria"> No Binaria</label>
+          <label class="option-chip"><input type="radio" name="identidad_genero" value="Hombre trans"> Hombre trans</label>
+          <label class="option-chip"><input type="radio" name="identidad_genero" value="Mujer trans"> Mujer trans</label>
+          <label class="option-chip"><input type="radio" name="identidad_genero" value="Otro"> Otro</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:8px">Estado civil</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="estado_civil" value="Soltero"> Soltero/a</label>
+          <label class="option-chip"><input type="radio" name="estado_civil" value="Casado"> Casado/a</label>
+          <label class="option-chip"><input type="radio" name="estado_civil" value="Union libre"> Unión libre</label>
+          <label class="option-chip"><input type="radio" name="estado_civil" value="Separado"> Separado/a</label>
+          <label class="option-chip"><input type="radio" name="estado_civil" value="Viudo"> Viudo/a</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Etnia y Conflicto -->
+    <div class="field-group">
+      <div class="field-group-title">Etnia y Población Especial</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Etnia con la que se identifica</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="etnia" value="Afro"> Afrodescendiente</label>
+          <label class="option-chip"><input type="checkbox" name="etnia" value="Indígena"> Indígena</label>
+          <label class="option-chip"><input type="checkbox" name="etnia" value="Room"> Room (Gitano)</label>
+          <label class="option-chip"><input type="checkbox" name="etnia" value="Raizal"> Raizal</label>
+          <label class="option-chip"><input type="checkbox" name="etnia" value="Palenquero"> Palenquero</label>
+          <label class="option-chip"><input type="checkbox" name="etnia" value="Mestizo"> Mestizo/a</label>
+          <label class="option-chip"><input type="checkbox" name="etnia" value="Ninguno"> Ninguno</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Es firmante de paz o persona en proceso de reincorporación/reinserción?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="firmante_paz" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="firmante_paz" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Es víctima del conflicto armado?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="victima_conflicto" value="Si" onclick="toggleConditional('c_ruv','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="victima_conflicto" value="No" onclick="toggleConditional('c_ruv','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_ruv">
+        <label>¿Cuenta con Registro Único de Víctimas (RUV)?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="ruv" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="ruv" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educación -->
+    <div class="field-group">
+      <div class="field-group-title">Escolaridad</div>
+      <div class="fields-grid cols-2" style="margin-bottom:16px">
+        <div>
+          <label style="display:block;margin-bottom:8px">¿Sabe leer?</label>
+          <div class="options-group">
+            <label class="option-chip"><input type="radio" name="sabe_leer" value="Si"> Sí</label>
+            <label class="option-chip"><input type="radio" name="sabe_leer" value="No"> No</label>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;margin-bottom:8px">¿Sabe escribir?</label>
+          <div class="options-group">
+            <label class="option-chip"><input type="radio" name="sabe_escribir" value="Si"> Sí</label>
+            <label class="option-chip"><input type="radio" name="sabe_escribir" value="No"> No</label>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;margin-bottom:8px">¿Estudia actualmente?</label>
+          <div class="options-group">
+            <label class="option-chip"><input type="radio" name="estudia" value="Si"> Sí</label>
+            <label class="option-chip"><input type="radio" name="estudia" value="No"> No</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Último grado aprobado (escala numérica)</label>
+          <input type="number" name="ultimo_grado" min="0" max="13" placeholder="0–13">
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Cuenta con formación técnica, tecnológica, profesional o posgrado?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="formacion" value="Técnico"> Técnico</label>
+          <label class="option-chip"><input type="checkbox" name="formacion" value="Tecnólogo"> Tecnólogo</label>
+          <label class="option-chip"><input type="checkbox" name="formacion" value="Profesional"> Profesional</label>
+          <label class="option-chip"><input type="checkbox" name="formacion" value="Posgrado"> Posgrado</label>
+          <label class="option-chip"><input type="checkbox" name="formacion" value="Ninguna"> Ninguna</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:8px">¿Presenta necesidades educativas especiales?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="nee" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="nee" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Salud -->
+    <div class="field-group">
+      <div class="field-group-title">Servicios de Salud</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Cuenta con carné de salud?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="carne_salud" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="carne_salud" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Régimen de salud al que está afiliado</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="regimen_salud" value="Contributivo"> Contributivo</label>
+          <label class="option-chip"><input type="radio" name="regimen_salud" value="Subsidiado"> Subsidiado</label>
+          <label class="option-chip"><input type="radio" name="regimen_salud" value="Especial"> Especial</label>
+          <label class="option-chip"><input type="radio" name="regimen_salud" value="Ninguno"> Ninguno</label>
+        </div>
+      </div>
+      <div class="fields-grid cols-2" style="margin-bottom:16px">
+        <div class="field">
+          <label>EPS / IPS a la que pertenece</label>
+          <input type="text" name="eps_ips" placeholder="Nombre de la entidad">
+        </div>
+        <div class="field">
+          <label>Centro de Salud al que asiste usualmente</label>
+          <input type="text" name="centro_salud" placeholder="Nombre del centro de salud">
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Cuenta con portabilidad?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="portabilidad" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="portabilidad" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Se encuentra en estado de embarazo?</label>
+        <div class="options-group" id="grp_embarazo">
+          <label class="option-chip"><input type="radio" name="embarazo" value="Si" onclick="toggleConditional('c_prenatal','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="embarazo" value="No" onclick="toggleConditional('c_prenatal','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_prenatal">
+        <label style="display:block;margin-bottom:8px">¿Ha asistido a controles prenatales?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="prenatal" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="prenatal" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-top:16px;margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Cuenta con esquema de vacunación al día?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="vacunacion" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="vacunacion" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Asiste a controles médicos regulares?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="controles_medicos" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="controles_medicos" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">En el último año se ha realizado citología</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="citologia" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="citologia" value="No"> No</label>
+          <label class="option-chip"><input type="radio" name="citologia" value="NA"> No aplica</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">En el último año se ha realizado examen de próstata</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="prostata" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="prostata" value="No"> No</label>
+          <label class="option-chip"><input type="radio" name="prostata" value="NA"> No aplica</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">En caso de enfermedad, ¿a dónde recurre?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="en_enfermedad" value="Centro de salud"> Centro de salud</label>
+          <label class="option-chip"><input type="checkbox" name="en_enfermedad" value="Hospital"> Hospital</label>
+          <label class="option-chip"><input type="checkbox" name="en_enfermedad" value="Médico tradicional"> Médico tradicional</label>
+          <label class="option-chip"><input type="checkbox" name="en_enfermedad" value="No asiste"> No asiste</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Usa medicina propia de su comunidad (plantas, rituales, curados, etc.) para cuidar su salud?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="medicina_propia" value="Siempre"> Siempre</label>
+          <label class="option-chip"><input type="radio" name="medicina_propia" value="A veces"> A veces</label>
+          <label class="option-chip"><input type="radio" name="medicina_propia" value="Nunca"> Nunca</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Conoce o acude a alguna comadrona o sabedor(a) en su comunidad?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="comadrona" value="Si" onclick="toggleConditional('c_comadrona','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="comadrona" value="No" onclick="toggleConditional('c_comadrona','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_comadrona">
+        <label>¿Quién? (nombre o descripción)</label>
+        <input type="text" name="comadrona_quien" placeholder="Nombre o descripción">
+      </div>
+    </div>
+
+    <!-- Quilombo -->
+    <div class="field-group">
+      <div class="field-group-title">Territorio</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Considera importante tener un Quilombo en su territorio?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="quilombo_importante" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="quilombo_importante" value="No"> No</label>
+          <label class="option-chip"><input type="radio" name="quilombo_importante" value="Tal vez"> Tal vez</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:8px">¿Qué servicio considera urgente que debe tener un Quilombo?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Medicina tradicional"> Medicina tradicional</label>
+          <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Psicología"> Psicología</label>
+          <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Enlace para estudiantes"> Enlace para estudiantes</label>
+          <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Otro"> Otro</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Discapacidad -->
+    <div class="field-group">
+      <div class="field-group-title">Discapacidad</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Presenta alguna discapacidad certificada por la EPS?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="discapacidad_eps" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="discapacidad_eps" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Es usted una persona con discapacidad o tiene alguna limitación permanente?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="tiene_discapacidad" value="Si" onclick="toggleConditional('c_tipo_discapacidad','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="tiene_discapacidad" value="No" onclick="toggleConditional('c_tipo_discapacidad','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_tipo_discapacidad">
+        <label style="display:block;margin-bottom:8px">Tipo de discapacidad</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="tipo_discapacidad" value="Física/Motriz"> Física / Motriz</label>
+          <label class="option-chip"><input type="checkbox" name="tipo_discapacidad" value="Visual"> Visual</label>
+          <label class="option-chip"><input type="checkbox" name="tipo_discapacidad" value="Auditiva"> Auditiva</label>
+          <label class="option-chip"><input type="checkbox" name="tipo_discapacidad" value="Intelectual"> Intelectual / Cognitiva</label>
+          <label class="option-chip"><input type="checkbox" name="tipo_discapacidad" value="Psicosocial"> Psicosocial (Mental)</label>
+          <label class="option-chip"><input type="checkbox" name="tipo_discapacidad" value="Otra"> Otra</label>
+        </div>
+        <div style="margin-top:12px">
+          <label style="display:block;margin-bottom:8px">¿Requiere ayudas técnicas?</label>
+          <div class="options-group">
+            <label class="option-chip"><input type="radio" name="ayudas_tecnicas" value="Si"> Sí</label>
+            <label class="option-chip"><input type="radio" name="ayudas_tecnicas" value="No"> No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Economía -->
+    <div class="field-group">
+      <div class="field-group-title">Situación Económica</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Principal actividad económica</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="actividad_economica" value="Estudiante"> Estudiante</label>
+          <label class="option-chip"><input type="radio" name="actividad_economica" value="Actividades del hogar"> Actividades del hogar</label>
+          <label class="option-chip"><input type="radio" name="actividad_economica" value="Jubilado"> Jubilado/a</label>
+          <label class="option-chip"><input type="radio" name="actividad_economica" value="Empleado"> Empleado/a</label>
+          <label class="option-chip"><input type="radio" name="actividad_economica" value="Desempleado"> Desempleado/a</label>
+          <label class="option-chip"><input type="radio" name="actividad_economica" value="Independiente"> Independiente</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Aplica conocimientos propios de su comunidad en su trabajo?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="conocimientos_propios" value="Si" onclick="toggleConditional('c_saberes','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="conocimientos_propios" value="No" onclick="toggleConditional('c_saberes','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_saberes">
+        <label>¿Cuál? (ej: ciclos lunares, abonos naturales, saberes propios…)</label>
+        <input type="text" name="saberes_cual" placeholder="Describa el conocimiento aplicado">
+      </div>
+      <div style="margin-top:16px;margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Se reconoce o autodefine como campesino/a?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="campesino" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="campesino" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Aporta al ingreso familiar?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="aporta_ingreso" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="aporta_ingreso" value="No"> No</label>
+        </div>
+      </div>
+      <div class="fields-grid cols-2">
+        <div class="field">
+          <label>Nivel de ingresos mensuales ($)</label>
+          <input type="number" name="ingresos" placeholder="0" min="0">
+        </div>
+        <div class="field">
+          <label>Nivel de egresos mensuales ($)</label>
+          <input type="number" name="egresos" placeholder="0" min="0">
+        </div>
+      </div>
+    </div>
+  </div><!-- /section-0 -->
+
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 2 – EJE SOCIAL (VIVIENDA)
+  ══════════════════════════════════════ -->
+  <div class="form-section" id="section-1">
+    <div class="section-header">
+      <div class="section-icon" style="background:#E8F5E9;color:#2D6A4F">🏠</div>
+      <div>
+        <div class="section-title">Eje Social – Datos de la Vivienda</div>
+        <div class="section-subtitle">Condiciones habitacionales y servicios públicos del hogar</div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Tipo y Tenencia de Vivienda</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Tipo de vivienda</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Propia"> Propia</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Apartamento"> Apartamento</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Cuarto"> Cuarto</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Familiar"> Familiar</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Prestada"> Prestada</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Arrendamiento"> Arrendamiento</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Otra"> Otra</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:8px">La vivienda ocupada por este hogar es</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Propia pagando"> Propia, la está pagando</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Propia pagada"> Propia totalmente pagada</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Arriendo"> En arriendo o subarriendo</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Con permiso"> Con permiso del propietario</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Posesión sin título"> Posesión sin título / ocupante de hecho</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Servicios Públicos</div>
+      <label style="display:block;margin-bottom:10px;font-size:13px;color:var(--muted)">¿Con cuáles servicios cuenta la vivienda? (seleccione todos los que apliquen)</label>
+      <div class="options-group">
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Energía eléctrica"> ⚡ Energía eléctrica</label>
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Alcantarillado"> 🚿 Alcantarillado</label>
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Acueducto"> 💧 Acueducto</label>
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Gas natural"> 🔥 Gas natural domiciliario</label>
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Recolección de basuras"> 🗑 Recolección de basuras</label>
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Telefonía"> 📞 Telefonía</label>
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Televisión"> 📺 Televisión</label>
+        <label class="option-chip"><input type="checkbox" name="servicios" value="Internet"> 🌐 Internet</label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Materiales de Construcción</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Materiales predominantes de las paredes exteriores</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="material_paredes" value="Bloque/ladrillo"> Bloque, ladrillo, piedra, madera pulida</label>
+          <label class="option-chip"><input type="radio" name="material_paredes" value="Tapia/bahareque"> Tapia pisada, Bahareque</label>
+          <label class="option-chip"><input type="radio" name="material_paredes" value="Prefabricado"> Material prefabricado</label>
+          <label class="option-chip"><input type="radio" name="material_paredes" value="Madera burda"> Madera burda, tablón</label>
+          <label class="option-chip"><input type="radio" name="material_paredes" value="Guadua/caña"> Guadua, caña, material vegetal</label>
+          <label class="option-chip"><input type="radio" name="material_paredes" value="Zinc/lona"> Zinc, lona, tela, cartón, latas</label>
+          <label class="option-chip"><input type="radio" name="material_paredes" value="Otra"> Otra</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:8px">Materiales predominantes de los pisos</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="material_pisos" value="Alfombra/mármol"> Alfombra, mármol, parqués, madera pulida</label>
+          <label class="option-chip"><input type="radio" name="material_pisos" value="Baldosa/vinilo"> Baldosa, vinilo</label>
+          <label class="option-chip"><input type="radio" name="material_pisos" value="Cemento"> Cemento, gravilla</label>
+          <label class="option-chip"><input type="radio" name="material_pisos" value="Madera burda"> Madera burda, madera en mal estado</label>
+          <label class="option-chip"><input type="radio" name="material_pisos" value="Tierra"> Tierra o arena</label>
+          <label class="option-chip"><input type="radio" name="material_pisos" value="Otra"> Otra</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Hogar</div>
+      <div class="fields-grid cols-2">
+        <div class="field">
+          <label>Nº de cuartos (incl. sala-comedor, excl. cocina y baños)</label>
+          <input type="number" name="num_cuartos" min="0" max="20" placeholder="Cantidad">
+        </div>
+        <div class="field">
+          <label>¿Cuántos hogares hay en la vivienda?</label>
+          <input type="number" name="num_hogares" min="1" max="10" placeholder="Cantidad">
+        </div>
+        <div class="field">
+          <label>¿Cuántos cuartos usa este hogar exclusivamente?</label>
+          <input type="number" name="cuartos_exclusivos" min="0" max="20" placeholder="Cantidad">
+        </div>
+        <div class="field">
+          <label>¿Cuántos de esos cuartos son para dormir?</label>
+          <input type="number" name="cuartos_dormir" min="0" max="20" placeholder="Cantidad">
+        </div>
+        <div class="field">
+          <label>¿Cuántas personas duermen en cada habitación?</label>
+          <input type="number" name="personas_por_cuarto" min="0" max="20" placeholder="Promedio">
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Sanidad</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">El sanitario que usan las personas de este hogar es</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="sanitario" value="Exclusivo"> De uso exclusivo</label>
+          <label class="option-chip"><input type="radio" name="sanitario" value="Compartido mismo"> Compartido con hogares de la misma vivienda</label>
+          <label class="option-chip"><input type="radio" name="sanitario" value="Compartido otras"> Compartido con hogares de otras viviendas</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Qué tipo de sanitario utiliza?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="tipo_sanitario" value="Alcantarillado"> Con conexión a alcantarillado</label>
+          <label class="option-chip"><input type="radio" name="tipo_sanitario" value="Pozo séptico"> Con conexión a pozo séptico</label>
+          <label class="option-chip"><input type="radio" name="tipo_sanitario" value="Sin conexión"> Sin conexión a alcantarillado ni pozo séptico</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">El agua para consumo o preparación de alimentos proviene de</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Acueducto"> Acueducto</label>
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Pozo con bomba"> Pozo con bomba</label>
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Pozo sin bomba"> Pozo sin bomba, Jagüey</label>
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Agua lluvia"> Agua lluvia</label>
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Río/quebrada"> Río o quebrada</label>
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Pila/pileta"> Pila o pileta pública</label>
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Carro tanque"> Carro tanque</label>
+          <label class="option-chip"><input type="radio" name="fuente_agua" value="Embotellada"> Agua embotellada o en bolsa</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿El agua llega los 7 días de la semana?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="agua_7dias" value="Si" onclick="toggleConditional('c_dias_agua','No',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="agua_7dias" value="No" onclick="toggleConditional('c_dias_agua','No',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_dias_agua">
+        <label>¿Cuántos días llega el agua?</label>
+        <input type="number" name="dias_agua" min="0" max="7" placeholder="Número de días a la semana">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Cocina y Combustible</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">La cocina o sitio para preparar alimentos es</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="cocina_uso" value="Exclusiva"> De uso exclusivo del hogar</label>
+          <label class="option-chip"><input type="radio" name="cocina_uso" value="Compartida misma vivienda"> Compartida con hogares de la misma vivienda</label>
+          <label class="option-chip"><input type="radio" name="cocina_uso" value="Compartida otras"> Compartida con hogares de otras viviendas</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">Ubicación de la cocina</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="ubicacion_cocina" value="Cuarto solo"> Cuarto solo para cocinar</label>
+          <label class="option-chip"><input type="radio" name="ubicacion_cocina" value="Cuarto dormir"> Cuarto usado también para dormir</label>
+          <label class="option-chip"><input type="radio" name="ubicacion_cocina" value="Sala/comedor"> Sala o comedor</label>
+          <label class="option-chip"><input type="radio" name="ubicacion_cocina" value="Patio"> Patio o corredor</label>
+          <label class="option-chip"><input type="radio" name="ubicacion_cocina" value="Aire libre"> Al aire libre</label>
+          <label class="option-chip"><input type="radio" name="ubicacion_cocina" value="Ninguna"> No preparan alimentos</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:8px">Combustible principal para cocinar</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="combustible" value="Electricidad"> Electricidad</label>
+          <label class="option-chip"><input type="radio" name="combustible" value="Gas domiciliario"> Gas natural domiciliario</label>
+          <label class="option-chip"><input type="radio" name="combustible" value="Gas propano"> Gas propano (cilindro)</label>
+          <label class="option-chip"><input type="radio" name="combustible" value="Petróleo/gasolina"> Petróleo, gasolina, kerosene, alcohol</label>
+          <label class="option-chip"><input type="radio" name="combustible" value="Carbón"> Carbón mineral</label>
+          <label class="option-chip"><input type="radio" name="combustible" value="Leña"> Madera, leña</label>
+          <label class="option-chip"><input type="radio" name="combustible" value="Ninguno"> Ninguno (no cocina)</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Bienes del Hogar</div>
+      <label style="display:block;margin-bottom:12px;font-size:13px;color:var(--muted)">¿Con cuáles bienes cuenta el hogar?</label>
+      <div class="options-group">
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Nevera"> 🧊 Nevera / Refrigerador</label>
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Lavadora"> 🫧 Lavadora</label>
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Computador"> 💻 Computador</label>
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Microondas"> 📦 Microondas</label>
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Internet"> 🌐 Conexión a internet</label>
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Moto"> 🏍 Moto</label>
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Carro"> 🚗 Carro</label>
+        <label class="option-chip"><input type="checkbox" name="bienes" value="Bienes raíces"> 🏘 Bienes raíces (diferentes a la vivienda)</label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Gastos Mensuales del Hogar ($)</div>
+      <div class="fields-grid cols-2">
+        <div class="field"><label>Alimentación</label><input type="number" name="gasto_alimentacion" min="0" placeholder="$"></div>
+        <div class="field"><label>Transporte</label><input type="number" name="gasto_transporte" min="0" placeholder="$"></div>
+        <div class="field"><label>Educación</label><input type="number" name="gasto_educacion" min="0" placeholder="$"></div>
+        <div class="field"><label>Salud</label><input type="number" name="gasto_salud" min="0" placeholder="$"></div>
+        <div class="field"><label>Servicios públicos</label><input type="number" name="gasto_servicios" min="0" placeholder="$"></div>
+        <div class="field"><label>Celular</label><input type="number" name="gasto_celular" min="0" placeholder="$"></div>
+        <div class="field"><label>Arriendo</label><input type="number" name="gasto_arriendo" min="0" placeholder="$"></div>
+        <div class="field"><label>Otros (diversión, deudas, préstamos)</label><input type="number" name="gasto_otros" min="0" placeholder="$"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Fenómenos Naturales</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿La vivienda ha sido afectada en el último año por? (seleccione todos los que apliquen)</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="fenomenos" value="Vendavales"> 🌬 Vendavales</label>
+          <label class="option-chip"><input type="checkbox" name="fenomenos" value="Terremotos/sismos"> 🌍 Terremotos / Sismos</label>
+          <label class="option-chip"><input type="checkbox" name="fenomenos" value="Incendios"> 🔥 Incendios</label>
+          <label class="option-chip"><input type="checkbox" name="fenomenos" value="Hundimientos"> 📉 Hundimientos</label>
+          <label class="option-chip"><input type="checkbox" name="fenomenos" value="Deslizamientos"> ⛰ Deslizamientos</label>
+          <label class="option-chip"><input type="checkbox" name="fenomenos" value="Inundaciones"> 💦 Inundaciones</label>
+          <label class="option-chip"><input type="checkbox" name="fenomenos" value="Ninguno"> ✅ Ninguno</label>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:8px">¿Cuenta con título o escritura de la vivienda?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="titulo_vivienda" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="titulo_vivienda" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+  </div><!-- /section-1 -->
+
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 3 – ORGANIZACIONES SOCIALES
+  ══════════════════════════════════════ -->
+  <div class="form-section" id="section-2">
+    <div class="section-header">
+      <div class="section-icon" style="background:#E3F0FF;color:#1A3A5C">🤝</div>
+      <div>
+        <div class="section-title">Organizaciones Sociales</div>
+        <div class="section-subtitle">Participación comunitaria y organizaciones presentes en el barrio</div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Organización en el Territorio</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Qué tipo de organizaciones comunitarias hacen presencia en este barrio? (puede seleccionar varios)</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="JAC"> JAC</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="Veedurías ciudadanas"> Veedurías ciudadanas</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="Fundaciones"> Fundaciones</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="Asociaciones"> Asociaciones</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="Grupos juveniles"> Grupos juveniles</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="ONG"> ONG</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="Grupos políticos"> Grupos políticos</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="Otras"> Otras</label>
+          <label class="option-chip"><input type="checkbox" name="org_tipos" value="N/S N/R"> N/S – N/R</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Qué papel desempeñan estas organizaciones en el barrio?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="checkbox" name="papel_org" value="Participación ciudadana"> Fomentan la participación ciudadana</label>
+          <label class="option-chip"><input type="checkbox" name="papel_org" value="Recreación bienestar"> Actividades de recreación y bienestar</label>
+          <label class="option-chip"><input type="checkbox" name="papel_org" value="Buena vecindad"> Fomentan la buena vecindad</label>
+          <label class="option-chip"><input type="checkbox" name="papel_org" value="Embellecimiento"> Trabajan por el embellecimiento del barrio</label>
+          <label class="option-chip"><input type="checkbox" name="papel_org" value="Todas las anteriores"> Todas las anteriores</label>
+          <label class="option-chip"><input type="checkbox" name="papel_org" value="N/S"> N/S</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Se beneficia de las actividades que desarrollan estas organizaciones?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="beneficio_org" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="beneficio_org" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Cómo califica las acciones que realizan estas organizaciones?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="calificacion_org" value="Muy bueno"> Muy bueno</label>
+          <label class="option-chip"><input type="radio" name="calificacion_org" value="Bueno"> Bueno</label>
+          <label class="option-chip"><input type="radio" name="calificacion_org" value="Regular"> Regular</label>
+          <label class="option-chip"><input type="radio" name="calificacion_org" value="Malo"> Malo</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>¿Desde hace cuánto tiempo se vienen realizando estas actividades en el barrio?</label>
+        <input type="text" name="tiempo_actividades" placeholder="">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Participación Social</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Usted participa de alguna organización social?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="participa_org" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="participa_org" value="No"> No</label>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Participa en espacios de decisión o mesas de participación?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="espacios_decision" value="Si" onclick="toggleConditional('c_cual_espacio','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="espacios_decision" value="No" onclick="toggleConditional('c_cual_espacio','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_cual_espacio">
+        <label>¿Cuál? (nombre del espacio o mesa de participación)</label>
+        <input type="text" name="cual_espacio" placeholder="Nombre del espacio de participación">
+      </div>
+      <div style="margin-top:16px;margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Le interesaría involucrarse en espacios de incidencia o movilización social para mejorar su territorio?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="interes_movilizacion" value="Si" onclick="toggleConditional('c_como_participar','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="interes_movilizacion" value="No" onclick="toggleConditional('c_como_participar','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_como_participar">
+        <label>¿De qué manera le gustaría participar?</label>
+        <textarea name="como_participar" placeholder="Describa cómo le gustaría participar..."></textarea>
+      </div>
+    </div>
+  </div><!-- /section-2 -->
+
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 4 – ARTE Y CULTURA
+  ══════════════════════════════════════ -->
+  <div class="form-section" id="section-3">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F3E8FF;color:#5C1A5C">🎨</div>
+      <div>
+        <div class="section-title">Arte, Cultura e Identidad</div>
+        <div class="section-subtitle">Expresiones artísticas y culturales propias de la comunidad</div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Expresión Artística</div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;margin-bottom:8px">¿Forma parte de alguna expresión artística (danza, música, tejidos, entre otros)?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="expresion_artistica" value="Si" onclick="toggleConditional('c_cual_arte','Si',this)"> Sí</label>
+          <label class="option-chip"><input type="radio" name="expresion_artistica" value="No" onclick="toggleConditional('c_cual_arte','Si',this)"> No</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_cual_arte">
+        <label>¿Cuál? (tipo de expresión artística)</label>
+        <input type="text" name="cual_arte" placeholder="Ej: danza folclórica, música de marimba, tejido en chaquira...">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group-title">Observaciones Adicionales</div>
+      <div class="field">
+        <label>¿Desea agregar algún comentario o información adicional sobre su comunidad?</label>
+        <textarea name="observaciones" rows="4" placeholder="Escriba aquí cualquier observación, sugerencia o información que considere relevante..."></textarea>
+      </div>
+    </div>
+  </div><!-- /section-3 -->
+
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 5 – REVISIÓN Y ENVÍO
+  ══════════════════════════════════════ -->
+  <div class="form-section" id="section-4">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF3D4;color:#7B3F00">✅</div>
+      <div>
+        <div class="section-title">Revisión y Envío</div>
+        <div class="section-subtitle">Revise la información antes de enviar la ficha</div>
+      </div>
+    </div>
+
+    <div class="field-group" id="summary-box">
+      <div class="field-group-title">Resumen de la Ficha</div>
+      <div id="summary-content" style="color:var(--muted);font-size:14px;line-height:1.8;">
+        Cargando resumen...
+      </div>
+    </div>
+
+    <div class="field-group" style="border-color:var(--gold)">
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;">
+        Al hacer clic en <strong>Enviar ficha</strong>, los datos serán guardados en Google Sheets. 
+        Esta información será tratada con confidencialidad y utilizada únicamente para los fines 
+        de la caracterización sociocultural de comunidades afrodescendientes del municipio de Pasto.
+      </p>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div id="success-view">
+    <span class="success-icon">🎉</span>
+    <h2>¡Ficha enviada con éxito!</h2>
+    <p>Los datos han sido guardados correctamente en el sistema.<br>Muchas gracias por su participación.</p>
+    <button class="btn btn-next" style="margin:24px auto;display:flex;" onclick="resetForm()">Registrar otra persona</button>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-bar" id="nav-bar">
+    <button class="btn btn-prev" id="btn-prev" onclick="navigate(-1)" disabled>← Anterior</button>
+    <button class="btn btn-next" id="btn-next" onclick="navigate(1)">Siguiente →</button>
+    <button class="btn btn-submit" id="btn-submit" style="display:none" onclick="submitForm()">📤 Enviar ficha</button>
+  </div>
+
+</main>
+
+<div id="toast"></div>
+
+<script type="module" src="/src/form.js"></script>
+</body>
+</html>
