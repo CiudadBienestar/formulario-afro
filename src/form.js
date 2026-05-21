@@ -5,33 +5,52 @@ const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || '';
 
 // ── AUTO-CALCULATE AGE FROM BIRTH DATE ──
 (function initAgeCalc() {
-  const fechaNacInput = document.getElementById('f_fecha_nac');
+  const diaInput = document.getElementById('f_nac_dia');
+  const mesInput = document.getElementById('f_nac_mes');
+  const anoInput = document.getElementById('f_nac_ano');
   const edadInput = document.getElementById('f_edad');
 
-  // Set max date to today
-  if (fechaNacInput) {
-    fechaNacInput.max = new Date().toISOString().split('T')[0];
+  if (anoInput) anoInput.max = new Date().getFullYear().toString();
+
+  function buildBirthDate() {
+    const dia = Number(diaInput?.value);
+    const mes = Number(mesInput?.value);
+    const ano = Number(anoInput?.value);
+
+    if (!dia || !mes || !ano) return null;
+
+    const fecha = new Date(ano, mes - 1, dia);
+    const isValid =
+      fecha.getFullYear() === ano &&
+      fecha.getMonth() === mes - 1 &&
+      fecha.getDate() === dia;
+
+    return isValid ? fecha : null;
   }
 
-  function calcularEdad(fechaNac) {
+  function calcularEdad(nac) {
     const hoy = new Date();
-    const nac = new Date(fechaNac + 'T00:00:00'); // avoid timezone shift
     let edad = hoy.getFullYear() - nac.getFullYear();
     const mes = hoy.getMonth() - nac.getMonth();
     if (mes < 0 || (mes === 0 && hoy.getDate() < nac.getDate())) edad--;
     return edad;
   }
 
-  if (fechaNacInput && edadInput) {
-    fechaNacInput.addEventListener('change', () => {
-      if (fechaNacInput.value) {
-        const edad = calcularEdad(fechaNacInput.value);
-        if (edad >= 0 && edad <= 120) {
-          edadInput.value = edad;
-          // Clear error style if previously marked
-          edadInput.classList.remove('input-error');
-        }
-      }
+  function updateEdad() {
+    const fechaNac = buildBirthDate();
+    if (!fechaNac) return;
+
+    const edad = calcularEdad(fechaNac);
+    if (edad >= 0 && edad <= 120) {
+      edadInput.value = edad;
+      edadInput.classList.remove('input-error');
+    }
+  }
+
+  if (diaInput && mesInput && anoInput && edadInput) {
+    [diaInput, mesInput, anoInput].forEach(input => {
+      input.addEventListener('input', updateEdad);
+      input.addEventListener('change', updateEdad);
     });
   }
 })();

@@ -85,6 +85,15 @@
       <div class="field-group-title">Datos Personales</div>
       <div class="fields-grid cols-2">
         <div class="field">
+          <label>Grupo al que pertenece</label>
+          <select id="f_grupo" name="grupo_pertenece">
+            <option value="">Seleccione una opción</option>
+            <option value="Bantú">Bantú</option>
+            <option value="Somos Pacífico">Somos Pacífico</option>
+            <option value="ASMADPPAZ - La Comadre">ASMADPPAZ - La Comadre</option>
+          </select>
+        </div>
+        <div class="field">
           <label class="required">Nombre y Apellidos</label>
           <input type="text" id="f_nombre" name="nombre" placeholder="Nombre completo">
         </div>
@@ -120,9 +129,9 @@
         <div class="field">
           <label>Fecha de nacimiento</label>
           <div class="date-triple">
-            <input type="number" name="nac_dia" placeholder="Día" min="1" max="31">
-            <input type="number" name="nac_mes" placeholder="Mes" min="1" max="12">
-            <input type="number" name="nac_ano" placeholder="Año" min="1900" max="2025">
+            <input type="number" id="f_nac_dia" name="nac_dia" placeholder="Día" min="1" max="31">
+            <input type="number" id="f_nac_mes" name="nac_mes" placeholder="Mes" min="1" max="12">
+            <input type="number" id="f_nac_ano" name="nac_ano" placeholder="Año" min="1900" max="2026">
           </div>
         </div>
         <div class="field">
@@ -131,7 +140,7 @@
         </div>
         <div class="field">
           <label>Edad (años cumplidos)</label>
-          <input type="number" name="edad" min="0" max="120" placeholder="">
+          <input type="number" id="f_edad" name="edad" min="0" max="120" placeholder="">
         </div>
       </div>
     </div>
