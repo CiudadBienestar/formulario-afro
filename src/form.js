@@ -138,32 +138,34 @@ document.querySelectorAll('[data-toggle-target]').forEach(input => {
 
 document.querySelectorAll('input[name="org_tipos"]').forEach(input => {
   input.addEventListener('change', () => {
-    const orgInputs = document.querySelectorAll('input[name="org_tipos"]');
     const nsnrInput = document.querySelector('input[name="org_tipos"][value="N/S N/R"]');
     if (!nsnrInput) return;
 
-    if (input === nsnrInput && nsnrInput.checked) {
-      orgInputs.forEach(option => {
-        if (option === nsnrInput) return;
-        clearFieldValue(option);
-        option.closest('.option-chip').style.display = 'none';
+    if (input !== nsnrInput && input.checked) clearFieldValue(nsnrInput);
+
+    document.querySelectorAll('.org-dependent').forEach(group => {
+      group.style.display = nsnrInput.checked ? 'none' : '';
+      if (nsnrInput.checked) {
+        group.querySelectorAll('input, select, textarea').forEach(clearFieldValue);
+      }
+    });
+  });
+});
+
+document.querySelectorAll('input[name="papel_org"]').forEach(input => {
+  input.addEventListener('change', () => {
+    const papelInputs = document.querySelectorAll('input[name="papel_org"]');
+    const nsInput = document.querySelector('input[name="papel_org"][value="N/S"]');
+    if (!nsInput) return;
+
+    if (input === nsInput && nsInput.checked) {
+      papelInputs.forEach(option => {
+        if (option !== nsInput) clearFieldValue(option);
       });
       return;
     }
 
-    if (input === nsnrInput && !nsnrInput.checked) {
-      orgInputs.forEach(option => {
-        option.closest('.option-chip').style.display = '';
-      });
-      return;
-    }
-
-    if (input !== nsnrInput && input.checked) {
-      clearFieldValue(nsnrInput);
-      orgInputs.forEach(option => {
-        option.closest('.option-chip').style.display = '';
-      });
-    }
+    if (input !== nsInput && input.checked) clearFieldValue(nsInput);
   });
 });
 
@@ -305,8 +307,8 @@ function resetForm() {
     el.classList.remove('input-error');
   });
   document.querySelectorAll('.conditional').forEach(c => c.classList.remove('visible'));
-  document.querySelectorAll('input[name="org_tipos"]').forEach(input => {
-    input.closest('.option-chip').style.display = '';
+  document.querySelectorAll('.org-dependent').forEach(group => {
+    group.style.display = '';
   });
   currentSection = 0;
   document.querySelectorAll('.form-section').forEach((s, i) => s.classList.toggle('active', i === 0));
