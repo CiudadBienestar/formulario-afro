@@ -105,11 +105,67 @@ document.querySelectorAll('.option-chip').forEach(chip => {
 });
 
 // ── CONDITIONAL FIELDS ──
+function clearFieldValue(el) {
+  if (el.type === 'checkbox' || el.type === 'radio') {
+    el.checked = false;
+    el.closest('.option-chip')?.classList.remove('selected');
+  } else {
+    el.value = '';
+  }
+}
+
+function clearConditionalFields(el) {
+  el.querySelectorAll('input, select, textarea').forEach(clearFieldValue);
+}
+
 function toggleConditional(id, showValue, inputEl) {
   const el = document.getElementById(id);
   if (!el) return;
-  el.classList.toggle('visible', inputEl.value === showValue);
+  const shouldShow = inputEl.value === showValue;
+  el.classList.toggle('visible', shouldShow);
+  if (!shouldShow) clearConditionalFields(el);
 }
+
+document.querySelectorAll('[data-toggle-target]').forEach(input => {
+  const target = document.getElementById(input.dataset.toggleTarget);
+  if (!target) return;
+
+  input.addEventListener('change', () => {
+    target.classList.toggle('visible', input.checked);
+    if (!input.checked) clearConditionalFields(target);
+  });
+});
+
+document.querySelectorAll('input[name="org_tipos"]').forEach(input => {
+  input.addEventListener('change', () => {
+    const orgInputs = document.querySelectorAll('input[name="org_tipos"]');
+    const nsnrInput = document.querySelector('input[name="org_tipos"][value="N/S N/R"]');
+    if (!nsnrInput) return;
+
+    if (input === nsnrInput && nsnrInput.checked) {
+      orgInputs.forEach(option => {
+        if (option === nsnrInput) return;
+        clearFieldValue(option);
+        option.closest('.option-chip').style.display = 'none';
+      });
+      return;
+    }
+
+    if (input === nsnrInput && !nsnrInput.checked) {
+      orgInputs.forEach(option => {
+        option.closest('.option-chip').style.display = '';
+      });
+      return;
+    }
+
+    if (input !== nsnrInput && input.checked) {
+      clearFieldValue(nsnrInput);
+      orgInputs.forEach(option => {
+        option.closest('.option-chip').style.display = '';
+      });
+    }
+  });
+});
 
 // ── NAVIGATION ──
 function navigate(dir) {
@@ -249,6 +305,9 @@ function resetForm() {
     el.classList.remove('input-error');
   });
   document.querySelectorAll('.conditional').forEach(c => c.classList.remove('visible'));
+  document.querySelectorAll('input[name="org_tipos"]').forEach(input => {
+    input.closest('.option-chip').style.display = '';
+  });
   currentSection = 0;
   document.querySelectorAll('.form-section').forEach((s, i) => s.classList.toggle('active', i === 0));
   document.querySelectorAll('.step-dot').forEach((d, i) => {

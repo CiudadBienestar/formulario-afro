@@ -118,6 +118,7 @@
         <div class="options-group">
           <label class="option-chip"><input type="radio" name="libreta_militar" value="Si"> Sí</label>
           <label class="option-chip"><input type="radio" name="libreta_militar" value="No"> No</label>
+          <label class="option-chip"><input type="radio" name="libreta_militar" value="No aplica"> No aplica</label>
         </div>
       </div>
     </div>
@@ -244,7 +245,7 @@
         </div>
         <div class="field">
           <label>Último grado aprobado (escala numérica)</label>
-          <input type="number" name="ultimo_grado" min="0" max="13" placeholder="0–13">
+          <input type="number" name="ultimo_grado" min="0" max="11" placeholder="0–11">
         </div>
       </div>
       <div style="margin-bottom:16px">
@@ -287,11 +288,11 @@
       </div>
       <div class="fields-grid cols-2" style="margin-bottom:16px">
         <div class="field">
-          <label>EPS / IPS a la que pertenece</label>
+          <label>EPS a la que pertenece</label>
           <input type="text" name="eps_ips" placeholder="Nombre de la entidad">
         </div>
         <div class="field">
-          <label>Centro de Salud al que asiste usualmente</label>
+          <label>Centro de Salud o IPS al que asiste usualmente</label>
           <input type="text" name="centro_salud" placeholder="Nombre del centro de salud">
         </div>
       </div>
@@ -307,6 +308,7 @@
         <div class="options-group" id="grp_embarazo">
           <label class="option-chip"><input type="radio" name="embarazo" value="Si" onclick="toggleConditional('c_prenatal','Si',this)"> Sí</label>
           <label class="option-chip"><input type="radio" name="embarazo" value="No" onclick="toggleConditional('c_prenatal','Si',this)"> No</label>
+          <label class="option-chip"><input type="radio" name="embarazo" value="No aplica" onclick="toggleConditional('c_prenatal','Si',this)"> No aplica</label>
         </div>
       </div>
       <div class="conditional" id="c_prenatal">
@@ -393,7 +395,11 @@
           <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Medicina tradicional"> Medicina tradicional</label>
           <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Psicología"> Psicología</label>
           <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Enlace para estudiantes"> Enlace para estudiantes</label>
-          <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Otro"> Otro</label>
+          <label class="option-chip"><input type="checkbox" name="quilombo_servicio" value="Otro" data-toggle-target="c_quilombo_servicio_otro"> Otro</label>
+        </div>
+        <div class="conditional" id="c_quilombo_servicio_otro">
+          <label>¿Cuál?</label>
+          <input type="text" name="quilombo_servicio_otro" placeholder="Especifique el servicio">
         </div>
       </div>
     </div>
@@ -505,23 +511,28 @@
       <div style="margin-bottom:16px">
         <label style="display:block;margin-bottom:8px">Tipo de vivienda</label>
         <div class="options-group">
-          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Propia"> Propia</label>
           <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Apartamento"> Apartamento</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Casa"> Casa</label>
           <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Cuarto"> Cuarto</label>
-          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Familiar"> Familiar</label>
-          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Prestada"> Prestada</label>
-          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Arrendamiento"> Arrendamiento</label>
-          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Otra"> Otra</label>
+          <label class="option-chip"><input type="radio" name="tipo_vivienda" value="Vivienda compartida y/o familiar"> Vivienda compartida y/o familiar</label>
         </div>
       </div>
       <div>
         <label style="display:block;margin-bottom:8px">La vivienda ocupada por este hogar es</label>
         <div class="options-group">
-          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Propia pagando"> Propia, la está pagando</label>
-          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Propia pagada"> Propia totalmente pagada</label>
-          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Arriendo"> En arriendo o subarriendo</label>
-          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Con permiso"> Con permiso del propietario</label>
-          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Posesión sin título"> Posesión sin título / ocupante de hecho</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Anticresis" onclick="toggleConditional('c_titulo_vivienda','Propia pagada',this)"> Anticresis</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Con permiso" onclick="toggleConditional('c_titulo_vivienda','Propia pagada',this)"> Con permiso del propietario</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Arriendo" onclick="toggleConditional('c_titulo_vivienda','Propia pagada',this)"> En arriendo o subarriendo</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Posesión sin título" onclick="toggleConditional('c_titulo_vivienda','Propia pagada',this)"> Posesión sin título / ocupante de hecho</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Propia pagando" onclick="toggleConditional('c_titulo_vivienda','Propia pagada',this)"> Propia, la está pagando</label>
+          <label class="option-chip"><input type="radio" name="tenencia_vivienda" value="Propia pagada" onclick="toggleConditional('c_titulo_vivienda','Propia pagada',this)"> Propia totalmente pagada</label>
+        </div>
+      </div>
+      <div class="conditional" id="c_titulo_vivienda">
+        <label style="display:block;margin-bottom:8px">¿Cuenta con título o escritura de la vivienda?</label>
+        <div class="options-group">
+          <label class="option-chip"><input type="radio" name="titulo_vivienda" value="Si"> Sí</label>
+          <label class="option-chip"><input type="radio" name="titulo_vivienda" value="No"> No</label>
         </div>
       </div>
     </div>
@@ -681,7 +692,6 @@
         <label class="option-chip"><input type="checkbox" name="bienes" value="Lavadora"> 🫧 Lavadora</label>
         <label class="option-chip"><input type="checkbox" name="bienes" value="Computador"> 💻 Computador</label>
         <label class="option-chip"><input type="checkbox" name="bienes" value="Microondas"> 📦 Microondas</label>
-        <label class="option-chip"><input type="checkbox" name="bienes" value="Internet"> 🌐 Conexión a internet</label>
         <label class="option-chip"><input type="checkbox" name="bienes" value="Moto"> 🏍 Moto</label>
         <label class="option-chip"><input type="checkbox" name="bienes" value="Carro"> 🚗 Carro</label>
         <label class="option-chip"><input type="checkbox" name="bienes" value="Bienes raíces"> 🏘 Bienes raíces (diferentes a la vivienda)</label>
@@ -714,13 +724,6 @@
           <label class="option-chip"><input type="checkbox" name="fenomenos" value="Deslizamientos"> ⛰ Deslizamientos</label>
           <label class="option-chip"><input type="checkbox" name="fenomenos" value="Inundaciones"> 💦 Inundaciones</label>
           <label class="option-chip"><input type="checkbox" name="fenomenos" value="Ninguno"> ✅ Ninguno</label>
-        </div>
-      </div>
-      <div>
-        <label style="display:block;margin-bottom:8px">¿Cuenta con título o escritura de la vivienda?</label>
-        <div class="options-group">
-          <label class="option-chip"><input type="radio" name="titulo_vivienda" value="Si"> Sí</label>
-          <label class="option-chip"><input type="radio" name="titulo_vivienda" value="No"> No</label>
         </div>
       </div>
     </div>
