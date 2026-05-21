@@ -89,18 +89,24 @@ let currentSection = 0;
 const totalSections = 5;
 
 // ── CHIP SELECTION ──
+function syncChipState(input) {
+  const chip = input.closest('.option-chip');
+  if (!chip) return;
+  chip.classList.toggle('selected', input.checked);
+}
+
 document.querySelectorAll('.option-chip').forEach(chip => {
   chip.addEventListener('click', () => {
     const input = chip.querySelector('input');
-    if (input.type === 'radio') {
-      const name = input.name;
-      document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-        r.closest('.option-chip').classList.remove('selected');
-      });
-      chip.classList.add('selected');
-    } else {
-      chip.classList.toggle('selected', input.checked);
-    }
+    if (!input) return;
+
+    setTimeout(() => {
+      if (input.type === 'radio') {
+        document.querySelectorAll(`input[name="${input.name}"]`).forEach(syncChipState);
+      } else {
+        syncChipState(input);
+      }
+    }, 0);
   });
 });
 
@@ -116,6 +122,26 @@ function clearFieldValue(el) {
 
 function clearConditionalFields(el) {
   el.querySelectorAll('input, select, textarea').forEach(clearFieldValue);
+}
+
+function setupExclusiveCheckbox(name, exclusiveValue, onChange) {
+  document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+    input.addEventListener('change', () => {
+      const inputs = document.querySelectorAll(`input[name="${name}"]`);
+      const exclusiveInput = document.querySelector(`input[name="${name}"][value="${exclusiveValue}"]`);
+      if (!exclusiveInput) return;
+
+      if (input === exclusiveInput && exclusiveInput.checked) {
+        inputs.forEach(option => {
+          if (option !== exclusiveInput) clearFieldValue(option);
+        });
+      }
+
+      if (input !== exclusiveInput && input.checked) clearFieldValue(exclusiveInput);
+
+      if (typeof onChange === 'function') onChange(exclusiveInput.checked);
+    });
+  });
 }
 
 function toggleConditional(id, showValue, inputEl) {
@@ -136,19 +162,14 @@ document.querySelectorAll('[data-toggle-target]').forEach(input => {
   });
 });
 
-document.querySelectorAll('input[name="org_tipos"]').forEach(input => {
-  input.addEventListener('change', () => {
-    const nsnrInput = document.querySelector('input[name="org_tipos"][value="N/S N/R"]');
-    if (!nsnrInput) return;
+setupExclusiveCheckbox('fenomenos', 'Ninguno');
 
-    if (input !== nsnrInput && input.checked) clearFieldValue(nsnrInput);
-
-    document.querySelectorAll('.org-dependent').forEach(group => {
-      group.style.display = nsnrInput.checked ? 'none' : '';
-      if (nsnrInput.checked) {
-        group.querySelectorAll('input, select, textarea').forEach(clearFieldValue);
-      }
-    });
+setupExclusiveCheckbox('org_tipos', 'N/S N/R', isNsnrSelected => {
+  document.querySelectorAll('.org-dependent').forEach(group => {
+    group.style.display = isNsnrSelected ? 'none' : '';
+    if (isNsnrSelected) {
+      group.querySelectorAll('input, select, textarea').forEach(clearFieldValue);
+    }
   });
 });
 
